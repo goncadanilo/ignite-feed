@@ -2,8 +2,14 @@ import { ImgHTMLAttributes } from "react";
 
 import styles from "./styles.module.css";
 
-type AvatarProps = ImgHTMLAttributes<HTMLImageElement>;
+type AvatarProps = ImgHTMLAttributes<HTMLImageElement> & {
+  highlight?: boolean;
+};
 
-export function Avatar(props: AvatarProps) {
-  return <img className={styles.avatar} {...props} />;
+export function Avatar({ highlight, ...rest }: AvatarProps) {
+  return highlight ? (
+    <img className={styles.avatarHighlight} {...rest} />
+  ) : (
+    <img className={styles.avatar} {...rest} />
+  );
 }

@@ -1,4 +1,5 @@
 import { Avatar } from "../Avatar";
+import { Comment } from "../Comment";
 import styles from "./styles.module.css";
 
 export function Post() {
@@ -9,6 +10,7 @@ export function Post() {
           <Avatar
             src="https://github.com/goncadanilo.png"
             alt="Danilo Gonçalves"
+            highlight
           />
 
           <div className={styles.authorInfo}>
@@ -50,6 +52,12 @@ export function Post() {
           <button type="submit">Publicar</button>
         </footer>
       </form>
+
+      <div className={styles.commentList}>
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
     </article>
   );
 }

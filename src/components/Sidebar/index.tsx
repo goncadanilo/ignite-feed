@@ -15,6 +15,7 @@ export function Sidebar() {
         <Avatar
           src="https://github.com/goncadanilo.png"
           alt="Danilo Gonçalves"
+          highlight
         />
 
         <strong>Danilo Gonçalves</strong>
