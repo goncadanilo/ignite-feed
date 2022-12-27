@@ -6,10 +6,11 @@ type AvatarProps = ImgHTMLAttributes<HTMLImageElement> & {
   highlight?: boolean;
 };
 
-export function Avatar({ highlight, ...rest }: AvatarProps) {
-  return highlight ? (
-    <img className={styles.avatarHighlight} {...rest} />
-  ) : (
-    <img className={styles.avatar} {...rest} />
+export function Avatar({ highlight = false, ...rest }: AvatarProps) {
+  return (
+    <img
+      className={highlight ? styles.avatarWithHighlight : styles.avatar}
+      {...rest}
+    />
   );
 }
