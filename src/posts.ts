@@ -7,13 +7,14 @@ export const posts = [
       role: "Frontend Developer",
     },
     content: [
-      { type: "paragraph", content: "Fala galeraa 👋" },
+      { id: 1, type: "paragraph", content: "Fala galeraa 👋" },
       {
+        id: 2,
         type: "paragraph",
         content:
           "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀",
       },
-      { type: "link", content: "jane.design/doctorcare" },
+      { id: 3, type: "link", content: "jane.design/doctorcare" },
     ],
     publishedAt: new Date("2022-12-26 15:30:00"),
   },
@@ -25,13 +26,14 @@ export const posts = [
       role: "CTO @ Rocketseat",
     },
     content: [
-      { type: "paragraph", content: "Fala galeraa 👋" },
+      { id: 1, type: "paragraph", content: "Fala galeraa 👋" },
       {
+        id: 2,
         type: "paragraph",
         content:
           "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀",
       },
-      { type: "link", content: "jane.design/doctorcare" },
+      { id: 3, type: "link", content: "jane.design/doctorcare" },
     ],
     publishedAt: new Date("2022-12-23 15:00:00"),
   },

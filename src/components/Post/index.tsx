@@ -7,13 +7,13 @@ import { Comment } from "../Comment";
 
 import styles from "./styles.module.css";
 
-interface Comment {
-  comment: {
-    value: string;
-  };
+interface CommentData {
+  id: number;
+  content: string;
 }
 
 interface Content {
+  id: number;
   type: string;
   content: string;
 }
@@ -29,7 +29,9 @@ interface PostProps {
 }
 
 export function Post({ author, content, publishedAt }: PostProps) {
-  const [comments, setComments] = useState(["Muito bom, parabéns!! 👏👏"]);
+  const [comments, setComments] = useState<CommentData[]>([
+    { id: 1, content: "Muito bom, parabéns!! 👏👏" },
+  ]);
   const [newCommentText, setNewCommentText] = useState("");
 
   const publishedDateFormat = format(
@@ -47,7 +49,10 @@ export function Post({ author, content, publishedAt }: PostProps) {
     event.preventDefault();
 
     if (newCommentText.trim().length > 0) {
-      setComments([...comments, newCommentText]);
+      setComments([
+        ...comments,
+        { id: comments.length + 1, content: newCommentText },
+      ]);
     }
 
     setNewCommentText("");
@@ -71,12 +76,12 @@ export function Post({ author, content, publishedAt }: PostProps) {
       </header>
 
       <div className={styles.content}>
-        {content.map((line, index) => {
+        {content.map((line) => {
           if (line.type === "paragraph") {
-            return <p key={index}>{line.content}</p>;
+            return <p key={line.id}>{line.content}</p>;
           } else if (line.type === "link") {
             return (
-              <p key={index}>
+              <p key={line.id}>
                 <a href="#">{line.content}</a>
               </p>
             );
@@ -100,8 +105,8 @@ export function Post({ author, content, publishedAt }: PostProps) {
       </form>
 
       <div className={styles.commentList}>
-        {comments.map((comment, index) => (
-          <Comment key={index} content={comment} />
+        {comments.map((comment) => (
+          <Comment key={comment.id} content={comment.content} />
         ))}
       </div>
     </article>
