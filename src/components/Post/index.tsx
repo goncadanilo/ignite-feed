@@ -50,10 +50,9 @@ export function Post({ author, content, publishedAt }: PostProps) {
   function handleCreateNewComment(event: FormEvent) {
     event.preventDefault();
 
-    setComments([
-      ...comments,
-      { id: comments.length + 1, content: newCommentText },
-    ]);
+    setComments((state) => {
+      return [...state, { id: state.length + 1, content: newCommentText }];
+    });
 
     setNewCommentText("");
   }
